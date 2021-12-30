@@ -1,3 +1,4 @@
+import { NullTemplateVisitor } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -23,6 +24,9 @@ export class AppComponent {
   evaluate(input: HTMLInputElement) {
     if (/\+/.test(input.value)) {
       input.value = input.value.split('+').reduce((a,c) => +a + +c, 0).toString();
+    } else if (/\-/.test(input.value)) {
+      const values = input.value.split('-');
+      input.value = (+values[0] - +values[1]).toString();
     }
   }
 }

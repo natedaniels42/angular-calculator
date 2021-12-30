@@ -80,5 +80,14 @@ describe('AppComponent', () => {
       app.evaluate(displayText);
       expect(displayText.value).toEqual('46');
     })
+
+    it ('contains -', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const displayText = (document.getElementById('displayText') as HTMLInputElement);
+      displayText.value = '12-3';
+      app.evaluate(displayText);
+      expect(displayText.value).toEqual('9');
+    })
   })
 });
