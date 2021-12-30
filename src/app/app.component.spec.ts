@@ -107,6 +107,15 @@ describe('AppComponent', () => {
       expect(displayText.value).toEqual('36');
     })
 
+    it ('contains / and the number after is xero', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const displayText = (document.getElementById('displayText') as HTMLInputElement);
+      displayText.value = '12/0';
+      app.evaluate(displayText);
+      expect(displayText.value).toEqual('Error');
+    })
+
     it ('contains /', () => {
       const fixture = TestBed.createComponent(AppComponent);
       const app = fixture.componentInstance;

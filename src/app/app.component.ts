@@ -34,7 +34,11 @@ export class AppComponent {
       input.value = input.value.split('*').reduce((a,c) => +a * +c, 1).toString();
     } else if (/\//.test(input.value)) {
       const values = input.value.split('/');
-      input.value = (+values[0] / +values[1]).toString();
+      if (Number(values[1]) === 0) {
+        input.value = 'Error';
+      } else {
+        input.value = (+values[0] / +values[1]).toString();
+      }
     }
   }
 }
