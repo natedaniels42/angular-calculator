@@ -27,6 +27,8 @@ export class AppComponent {
     } else if (/\-/.test(input.value)) {
       const values = input.value.split('-');
       input.value = (+values[0] - +values[1]).toString();
+    } else if (/\*/.test(input.value)) {
+      input.value = input.value.split('*').reduce((a,c) => +a * +c, 1).toString();
     }
   }
 }
