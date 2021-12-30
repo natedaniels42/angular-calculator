@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'calculator';
+  calculated = false;
 
   addText(value: string, input: HTMLInputElement): void {
     if ((/[\+\-\*\/]/.test(value) && /[\+\-\*\/]/.test(input.value)) || input.value.length === 18) {
@@ -22,13 +23,18 @@ export class AppComponent {
   }
 
   evaluate(input: HTMLInputElement) {
-    if (/\+/.test(input.value)) {
+    if (/[^\d\+\-\*\/]/.test(input.value)) {
+      input.value = 'Error';
+    } else if (/\+/.test(input.value)) {
       input.value = input.value.split('+').reduce((a,c) => +a + +c, 0).toString();
     } else if (/\-/.test(input.value)) {
       const values = input.value.split('-');
       input.value = (+values[0] - +values[1]).toString();
     } else if (/\*/.test(input.value)) {
       input.value = input.value.split('*').reduce((a,c) => +a * +c, 1).toString();
+    } else if (/\//.test(input.value)) {
+      const values = input.value.split('/');
+      input.value = (+values[0] / +values[1]).toString();
     }
   }
 }

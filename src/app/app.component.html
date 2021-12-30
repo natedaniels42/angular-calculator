@@ -33,7 +33,7 @@
     <div class="row">
       <button class="button reset" id="clear" (click)="clear(display)">C</button>
        <button class="button num" id="num0" (click)="addText('0', display)">0</button>
-       <button class="button equal" id="equal" >=</button>
+       <button class="button equal" id="equal" (click)="evaluate(display)">=</button>
       <button class="button operator" id="divide" (click)="addText('/', display)">/</button>
     </div>
   </div>
