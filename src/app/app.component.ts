@@ -15,4 +15,14 @@ export class AppComponent {
       input.value = input.value + value;
     }
   }
+
+  clear(input: HTMLInputElement) {
+    input.value = '';
+  }
+
+  evaluate(input: HTMLInputElement) {
+    if (/\+/.test(input.value)) {
+      input.value = input.value.split('+').reduce((a,c) => +a + +c, 0).toString();
+    }
+  }
 }

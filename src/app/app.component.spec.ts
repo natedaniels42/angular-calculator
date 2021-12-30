@@ -59,4 +59,26 @@ describe('AppComponent', () => {
       expect(displayValue).toEqual(displayText.value);
     })
   })
+
+  describe('clear', () => {
+    it ('should clear the input text', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const displayText = (document.getElementById('displayText') as HTMLInputElement);
+      displayText.value = '1234';
+      app.clear(displayText);
+      expect(displayText.value).toEqual('');
+    })
+  })
+
+  describe('evaluate', () => {
+    it ('contains +', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const displayText = (document.getElementById('displayText') as HTMLInputElement);
+      displayText.value = '12+34';
+      app.evaluate(displayText);
+      expect(displayText.value).toEqual('46');
+    })
+  })
 });
