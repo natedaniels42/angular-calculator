@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
@@ -168,7 +167,7 @@ describe('AppComponent', () => {
       expect(displayText.value).toEqual('36');
     })
 
-    it ('contains / and the number after is xero', () => {
+    it ('contains / and the number after is zero', () => {
       displayText.value = '12/0';
       app.evaluate(displayText);
       expect(displayText.value).toEqual('Error');
