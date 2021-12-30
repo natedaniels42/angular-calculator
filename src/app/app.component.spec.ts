@@ -20,10 +20,118 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'calculator'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('calculator');
+  describe('buttons', () => {
+    it ('1 button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('num1');
+      expect(button).toBeTruthy();
+    });
+
+    it ('2 button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('num2');
+      expect(button).toBeTruthy();
+    });
+
+    it ('3 button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('num3');
+      expect(button).toBeTruthy();
+    });
+
+    it ('4 button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('num4');
+      expect(button).toBeTruthy();
+    });
+
+    it ('5 button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('num5');
+      expect(button).toBeTruthy();
+    });
+
+    it ('6 button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('num6');
+      expect(button).toBeTruthy();
+    });
+
+    it ('7 button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('num7');
+      expect(button).toBeTruthy();
+    });
+
+    it ('8 button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('num8');
+      expect(button).toBeTruthy();
+    });
+
+    it ('9 button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('num9');
+      expect(button).toBeTruthy();
+    });
+
+    it ('0 button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('num0');
+      expect(button).toBeTruthy();
+    });
+
+    it ('plus button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('plus');
+      expect(button).toBeTruthy();
+    });
+
+    it ('minus button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('minus');
+      expect(button).toBeTruthy();
+    });
+
+    it ('multiply button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('multiply');
+      expect(button).toBeTruthy();
+    });
+
+    it ('divide button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('divide');
+      expect(button).toBeTruthy();
+    });
+
+    it ('equal button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('equal');
+      expect(button).toBeTruthy();
+    });
+
+    it ('clear button exists', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const button = document.getElementById('clear');
+      expect(button).toBeTruthy();
+    })
   });
 
   describe('addText', () => {

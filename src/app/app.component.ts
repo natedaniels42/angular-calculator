@@ -1,4 +1,3 @@
-import { NullTemplateVisitor } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'calculator';
   calculated = false;
 
   addText(value: string, input: HTMLInputElement): void {
