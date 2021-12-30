@@ -5,13 +5,15 @@
     background-color: rgba(33, 107, 219, .7);
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 10px 10px 5px grey, inset -5px -5px 5px rgba(33, 107, 219, .7);
+    box-shadow: 10px 10px 5px grey, inset -5px -5px 5px rgba(33, 107, 219, .7), inset 5px 5px 5px #ccc;
     transform: perspective(300px) rotateX(25deg) rotate(0deg);
+    transition: 1.5s transform, 1.5s box-shadow;
 }
 
 .container:hover {
     transform: none;
-    transition: 2s transform;
+    box-shadow: 5px 5px 5px lightgrey, inset -5px -5px 5px rgba(33, 107, 219, .7), inset 5px 5px 5px #ccc;
+    transition: 1.5s transform, 1.5s box-shadow;
 }
 
 .row{
