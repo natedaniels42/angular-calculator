@@ -137,11 +137,20 @@ describe('AppComponent', () => {
       expect(displayText.value).toEqual('Error');
     })
 
-    it ('does not contain a number greater than the max safe integer', () => {
+    it ('contains a number greater than the max safe integer', () => {
       const fixture = TestBed.createComponent(AppComponent);
       const app = fixture.componentInstance;
       const displayText = (document.getElementById('displayText') as HTMLInputElement);
       displayText.value = '9999999999999999*9';
+      app.evaluate(displayText);
+      expect(displayText.value).toEqual('Error');
+    })
+
+    it ('numbers total up to an amount above max safe integer', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const displayText = (document.getElementById('displayText') as HTMLInputElement);
+      displayText.value = '999999999999999*99';
       app.evaluate(displayText);
       expect(displayText.value).toEqual('Error');
     })

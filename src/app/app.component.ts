@@ -38,7 +38,12 @@ export class AppComponent {
       if (tooBig(Number(values[0])) || tooBig(Number(values[1]))) {
         input.value = 'Error';
       } else {
-        input.value = values.reduce((a,c) => +a + +c, 0).toString();
+        const value = +values[0] + +values[1];
+        if (tooBig(value)) {
+          input.value = 'Error';
+        } else {
+          input.value = value.toString();
+        }
       }
     } else if (/\-/.test(input.value)) {
       const values = input.value.split('-');
@@ -52,7 +57,12 @@ export class AppComponent {
       if (tooBig(Number(values[0])) || tooBig(Number(values[1]))) {
         input.value = 'Error';
       } else {
-        input.value = input.value.split('*').reduce((a,c) => +a * +c, 1).toString();
+        const value = +values[0] * +values[1];
+        if (tooBig(value)) {
+          input.value = 'Error';
+        } else {
+          input.value = value.toString();
+        }
       }
     } else if (/\//.test(input.value)) {
       const values = input.value.split('/');
