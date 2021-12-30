@@ -14,7 +14,11 @@ export class AppComponent {
     if ((/[\+\-\*\/]/.test(value) && /[\+\-\*\/]/.test(input.value)) || input.value.length === 18) {
       return;
     } else {
+      if (this.calculated) {
+        input.value = '';
+      }
       input.value = input.value + value;
+      this.calculated = false;
     }
   }
 
@@ -23,22 +27,41 @@ export class AppComponent {
   }
 
   evaluate(input: HTMLInputElement) {
+    const tooBig = (num: number): boolean => {
+      return num > Number.MAX_SAFE_INTEGER;
+    }
+
     if (/[^\d\+\-\*\/]/.test(input.value)) {
       input.value = 'Error';
     } else if (/\+/.test(input.value)) {
-      input.value = input.value.split('+').reduce((a,c) => +a + +c, 0).toString();
+      const values = input.value.split('+');
+      if (tooBig(Number(values[0])) || tooBig(Number(values[1]))) {
+        input.value = 'Error';
+      } else {
+        input.value = values.reduce((a,c) => +a + +c, 0).toString();
+      }
     } else if (/\-/.test(input.value)) {
       const values = input.value.split('-');
-      input.value = (+values[0] - +values[1]).toString();
+      if (tooBig(Number(values[0])) || tooBig(Number(values[1]))) {
+        input.value = 'Error';
+      } else {
+        input.value = (+values[0] - +values[1]).toString();
+      }
     } else if (/\*/.test(input.value)) {
-      input.value = input.value.split('*').reduce((a,c) => +a * +c, 1).toString();
+      const values = input.value.split('*');
+      if (tooBig(Number(values[0])) || tooBig(Number(values[1]))) {
+        input.value = 'Error';
+      } else {
+        input.value = input.value.split('*').reduce((a,c) => +a * +c, 1).toString();
+      }
     } else if (/\//.test(input.value)) {
       const values = input.value.split('/');
-      if (Number(values[1]) === 0) {
+      if (Number(values[1]) === 0 || tooBig(Number(values[0])) || tooBig(Number(values[1]))) {
         input.value = 'Error';
       } else {
         input.value = (+values[0] / +values[1]).toString();
       }
     }
+    this.calculated = true;
   }
 }

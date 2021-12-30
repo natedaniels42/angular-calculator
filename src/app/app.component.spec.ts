@@ -59,13 +59,16 @@ describe('AppComponent', () => {
       expect(displayValue).toEqual(displayText.value);
     })
 
-    // it ('should clear the input first if calculated is true', () => {
-    //   const fixture = TestBed.createComponent(AppComponent);
-    //   const app = fixture.componentInstance;
-    //   const displayText = (document.getElementById('displayText') as HTMLInputElement);
-    //   displayText.
-    //   const clickedValue = (document.getElementById('num1') as HTMLElement).innerText;
-    // })
+    it ('should clear the input first if calculated is true', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const displayText = (document.getElementById('displayText') as HTMLInputElement);
+      displayText.value = '1234';
+      app.calculated = true;
+      const clickedValue = (document.getElementById('num1') as HTMLElement).innerText;
+      app.addText(clickedValue, displayText);
+      expect(displayText.value).toEqual(clickedValue);
+    })
   })
 
   describe('clear', () => {
@@ -130,6 +133,15 @@ describe('AppComponent', () => {
       const app = fixture.componentInstance;
       const displayText = (document.getElementById('displayText') as HTMLInputElement);
       displayText.value = 'abc';
+      app.evaluate(displayText);
+      expect(displayText.value).toEqual('Error');
+    })
+
+    it ('does not contain a number greater than the max safe integer', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const displayText = (document.getElementById('displayText') as HTMLInputElement);
+      displayText.value = '9999999999999999*9';
       app.evaluate(displayText);
       expect(displayText.value).toEqual('Error');
     })
