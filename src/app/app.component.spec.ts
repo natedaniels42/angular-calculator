@@ -26,10 +26,26 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('calculator');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('calculator app is running!');
-  });
+  describe('addText', () => {
+    it ('should add text on click', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const displayText = (document.getElementById('displayText') as HTMLInputElement);
+      const displayValue = displayText.value;
+      const clickedValue = (document.getElementById('num1') as HTMLElement).innerText;
+      app.addText(clickedValue, displayText);
+      expect(displayValue + clickedValue).toEqual(displayText.value);
+    })
+
+    it ('should not allow text to add on operator if operator is already in text', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const displayText = (document.getElementById('displayText') as HTMLInputElement);
+      displayText.value = '123+23';
+      const displayValue = displayText.value;
+      const clickedValue = (document.getElementById('plus') as HTMLElement).innerText;
+      app.addText(clickedValue, displayText);
+      expect(displayValue).toEqual(displayText.value);
+    })
+  })
 });

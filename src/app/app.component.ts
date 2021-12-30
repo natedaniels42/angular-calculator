@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'calculator';
+
+  addText(value: string, input: HTMLInputElement): void {
+    if (/[\+\-\*\/]/.test(value) && /[\+\-\*\/]/.test(input.value)) {
+      return;
+    } else {
+      input.value = input.value + value;
+    }
+  }
 }

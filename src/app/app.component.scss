@@ -1,0 +1,73 @@
+.container{
+    margin:20px auto;
+    width: 200px;
+    height: 300px;
+    background-color: rgba(33, 107, 219, .7);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px grey, inset -5px -5px 5px rgba(33, 107, 219, .7);
+    transform: perspective(300px) rotateX(25deg) rotate(0deg);
+}
+
+.container:hover {
+    transform: none;
+    transition: 2s transform;
+}
+
+.row{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin: 5px;
+}
+
+.row input {
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px 0;
+    margin-top: 10px;
+    background-color: lightgray;
+    /* color: white; */
+    font-size: 1.2rem;
+}
+
+#calc {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin: 20px 10px 10px 10px;
+}
+
+#display {
+    margin: 0 auto;
+}
+
+.button {
+    margin: 2px;
+    padding: 10px;
+    width: 40px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px black, inset -3px -3px 5px grey;
+    cursor: pointer;
+}
+
+.button:active {
+    box-shadow: inset 1px 1px 5px grey;
+}
+
+.num {
+    background-color: lightgrey;
+}
+
+.reset {
+    background-color: rgb(236, 145, 145);
+}
+
+.equal {
+    background-color: rgb(214, 214, 44);
+}
+
+.operator {
+    background-color: burlywood;
+}
