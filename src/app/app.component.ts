@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'calculator';
 
   addText(value: string, input: HTMLInputElement): void {
-    if (/[\+\-\*\/]/.test(value) && /[\+\-\*\/]/.test(input.value)) {
+    if ((/[\+\-\*\/]/.test(value) && /[\+\-\*\/]/.test(input.value)) || input.value.length === 18) {
       return;
     } else {
       input.value = input.value + value;

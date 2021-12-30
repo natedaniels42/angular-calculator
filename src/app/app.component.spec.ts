@@ -47,5 +47,16 @@ describe('AppComponent', () => {
       app.addText(clickedValue, displayText);
       expect(displayValue).toEqual(displayText.value);
     })
+
+    it ('should not allow text to be added if the length of text is already 18 characters', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      const displayText = (document.getElementById('displayText') as HTMLInputElement);
+      displayText.value = '1234567890+1234567';
+      const displayValue = displayText.value;
+      const clickedValue = (document.getElementById('num1') as HTMLElement).innerText;
+      app.addText(clickedValue, displayText);
+      expect(displayValue).toEqual(displayText.value);
+    })
   })
 });
